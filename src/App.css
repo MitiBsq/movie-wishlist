@@ -1,38 +1,81 @@
-.App {
-  text-align: center;
+.header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 80%;
+    margin: auto;
+    margin-bottom: 4px;
+    border-bottom: 1px black solid;
+    margin-top: 2px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.mainPanel{
+    width: 80%;
+    margin: auto;
+    margin-top: 2em;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.upperMain{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.searchPanel{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    align-self: flex-start;
+}
+
+.wishListPlace{
+    align-self: center;
+    text-align: end;
+}
+
+.lowerMain{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    margin: auto;
+    margin-top: 2em;
+}
+
+.movieData{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.moviePoster {
+    text-align: center;
+}
+
+.moviePoster img{
+    border-radius: 15%;
+    box-shadow: 3px 5px 7px rgba(0, 0, 0, 0.5);
+    height: 200px;
+    width: 200px;
+}
+
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
   }
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  .wishListPanel {
+    display: flex;
+    max-width: 50%;
+    max-height: 70%;
+    background-color: aliceblue;
+    height: 70%;
+    margin: 150px auto;
+    box-shadow: 3px 5px 7px rgba(0, 0, 0, 0.5);
+    border: 3px solid white;
+    margin-bottom: 2rem;
+    overflow: auto;
   }
-  to {
-    transform: rotate(360deg);
-  }
-}
