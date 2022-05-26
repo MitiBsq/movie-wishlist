@@ -6,7 +6,7 @@ export default function Header(props) {
     <div className='header'>
       <h3>WishList by Dumitru Beschiu</h3>
       <div className='wishListPlace'>
-        <button onClick={props.showTheBox}>Wishlist</button>
+        <button onClick={props.showTheBox}>Wishlist {<span>{props.wishListLength}</span>}</button>
       </div>
     </div>
   );

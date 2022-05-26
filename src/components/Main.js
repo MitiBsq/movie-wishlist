@@ -2,35 +2,33 @@ import React, { useEffect, useState } from 'react';
 import LowerMain from './LowerMain';
 import UpperMain from './UpperMain';
 
-export default function Main() {
+export default function Main(props) {
+    //We use it to store data from the API call
     const [movieData, setMovieData] = useState();
+    //We use it to track when we want to search
     const [search, setSearch] = useState();
 
-    const startToSearch = (movieTitle, releaseYear) => {
-        setSearch({ movieTitle, releaseYear });
-    }
-
+    //Same as in the App.js file, but for the API data
     useEffect(() => {
         const fetchData = async () => {
             try {
-                /* const apiKey = search.releaseYear !== null ? `t=${search.movieTitle}&y=${search.releaseYear}` : `t=${search.movieTitle}`; */
-                const apikey2 = `t=${search.movieTitle}`
+                const apikey2 = `t=${search}`
                 const getData = await fetch(`http://www.omdbapi.com/?${apikey2}&apikey=d3e38038`);
                 const getDataJson = await getData.json();
-                setMovieData({...getDataJson});
+                setMovieData({ ...getDataJson });
             } catch (error) {
                 console.error(error.message);
             }
         }
-        if(search) {
+        if (search) {
             fetchData();
         }
     }, [search]);
 
     return (
         <div className='mainPanel'>
-            <UpperMain startToSearch={(movieTitle, releaseYear) => startToSearch(movieTitle, releaseYear)} />
-            <LowerMain movieData={movieData}/>
+            <UpperMain startToSearch={(movieTitle) => setSearch(movieTitle)} />
+            <LowerMain movieData={movieData} update={props.update} />
         </div>
     );
 }

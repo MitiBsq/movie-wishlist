@@ -1,13 +1,13 @@
 import React from 'react';
 import MoviePoster from './MoviePoster';
 
-export default function LowerMain({ movieData }) {
-    console.log(movieData);
+export default function LowerMain({ movieData, update }) {
+
     return (
         <div>
-            {!movieData ? 'Loading...' :
+            {movieData &&
                 <div className='lowerMain'>
-                    <MoviePoster movieTitle={movieData.Title} imageSource={movieData.Poster} />
+                    <MoviePoster movieData={movieData} update={update} />
                     <div className='movieData'>
                         <ul >
                             <li>Title: {movieData.Title}</li>
